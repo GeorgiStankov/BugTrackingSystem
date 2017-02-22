@@ -2,6 +2,8 @@ package com.hackbulgaria.bugtracking.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,12 +18,31 @@ public class Issue {
 	}
 
 	public enum Priority {
-		LOW, MEDIUM, HIGH, BLOCKER
+		LOW("Low"), MEDIUM("Medium"), HIGH("High"), BLOCKER("Blocker");
+		
+		String value;
+		Priority(String value){
+			this.value = value;
+		}
+		
+		@Override
+		public String toString() {
+			return value;
+		}
 	}
 
 	public enum IssueStatus {
-		NEW, IN_PROGRESS, RESOLVED, INVALID
-
+		NEW("Initial"), IN_PROGRESS("In progress"), RESOLVED("Resolved"), INVALID("Invalid");
+		
+		String value;
+		IssueStatus(String value){
+			this.value = value;
+		}
+		
+		@Override
+		public String toString() {
+			return value;
+		}
 	}
 
 	@Id
@@ -31,12 +52,15 @@ public class Issue {
 	@Column(name = "date_creation")
 	private String date;
 	@Column(name = "type")
+	@Enumerated(EnumType.STRING)
 	private Type type;
 	@Column(name = "description")
 	private String description;
 	@Column(name = "priority")
+	@Enumerated(EnumType.STRING)
 	private Priority priority;
 	@Column(name = "issue_status")
+	@Enumerated(EnumType.STRING)
 	private IssueStatus status;
 	@ManyToOne(optional=false)
 	@JoinColumn(name="id",referencedColumnName="id",insertable=false,updatable=false)

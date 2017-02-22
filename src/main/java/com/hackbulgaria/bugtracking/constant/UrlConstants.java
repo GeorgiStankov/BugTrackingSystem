@@ -4,7 +4,7 @@ public class UrlConstants {
 	private UrlConstants() {
 	}
 	public static final String HOME = "/home";
-	public static final String DEVS_REGISTER_URL = "/developers";
+	public static final String DEVELOPERS = "/developers";
 	public static final String ACTIONS_URL = "/actionsDeveloper";
 	public static final String ADD_DEV_SAVE_URL="/developers/add";
 	public static final String REMOVE_DEV_SAVE_URL="/removeDeveloperSave";

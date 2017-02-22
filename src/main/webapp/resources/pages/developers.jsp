@@ -42,7 +42,8 @@
 								<c:forEach var="s" items="${Devs}">
 									<tr>
 										<td>${s.id}</td>
-										<td>${s.name}</td>
+										<td><a href="<c:url value="/developers/view/${s.id}"/> ">
+											${s.name}</a></td>
 										<td>${s.role}</td>
 										<td>${s.date}</td>
 									</tr>
