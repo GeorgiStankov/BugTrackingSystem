@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.hackbulgaria.bugtracking.constant.UrlConstants;
 import com.hackbulgaria.bugtracking.entities.Developer;
 import com.hackbulgaria.bugtracking.services.DeveloperService;
@@ -21,18 +25,19 @@ public class BugtrackingController {
 		return "home";
 	}
 	
-	@RequestMapping(value = UrlConstants.DEVS_REGISTER_URL, method = RequestMethod.GET)
+	@RequestMapping(value = UrlConstants.DEVELOPERS, method = RequestMethod.GET)
 	public String getDevelopers(Model model) {
 		model.addAttribute("Devs", devService.getDevelopers());
 		return "developers";
 	}
 
-	@RequestMapping(value = UrlConstants.ACTIONS_URL, method = RequestMethod.GET)
-	public String addDev() {
-		return "actionsDeveloper";
+	@RequestMapping(value = UrlConstants.VIEW_DEV + "/{uid}", method = RequestMethod.GET)
+	public String viewDeveloper(@PathVariable int uid, Model model) {
+		model.addAttribute("dev",devService.getDeveloper(uid));
+		return "view_developer";
 	}
 	
-	@RequestMapping(value = UrlConstants.ADD_DEV_SAVE_URL, method = RequestMethod.GET)
+	@RequestMapping(value = UrlConstants.ADD_DEV, method = RequestMethod.GET)
 	public String addDeveloper() {
 		return "add_developer";
 	}

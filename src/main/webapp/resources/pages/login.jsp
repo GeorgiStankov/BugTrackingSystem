@@ -35,14 +35,15 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet">
 
+<link rel="icon" href="resources/img/favicon.png" sizes="16x16" type="image/png">
 </head>
 
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}" />
-	<div class="container">
+	<div class="container" style="margin-top: 10%;">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-				
+			<img src="<c:url value="resources/img/logo_256.png"/> " style="position:relative; display: block; margin:auto;"/>
 				<div class="login-panel panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Please Sign In</h3>
@@ -58,11 +59,11 @@
 									<input class="form-control" placeholder="Password" id="password"
 										name="password" type="password" value="">
 								</div>
-								<div class="checkbox">
+								<!-- <div class="checkbox">
 									<label> <input name="remember" type="checkbox"
 										value="Remember Me">Remember Me
 									</label>
-								</div>
+								</div> -->
 								<!-- Change this to a button or input when using this as a form -->
 								<a href="" id="loginButton" class="btn btn-lg btn-success btn-block">Login</a>
 							</fieldset>

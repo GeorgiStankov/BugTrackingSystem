@@ -255,10 +255,10 @@
 						<li><a href="<c:url value = "/developers"/>"><i
 								class="fa fa-users"></i> Developers</a></li>
 
-						<li><a href="<c:url value = "projects"/>"><i
+						<li><a href="<c:url value = "/projects"/>"><i
 								class="fa fa-folder"></i> Projects</a></li>
 
-						<li><a href="<c:url value = "issues"/>"><i
+						<li><a href="<c:url value = "/issues"/>"><i
 								class="fa fa-bug"></i> Issues</a></li>
 					</ul>
 				</div>
